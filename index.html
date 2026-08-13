@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hansika's Portfolio | Day 13</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #111827;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            min-height: 70px;
+            margin: auto;
+            padding: 0 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: white;
+            font-size: 28px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #60a5fa;
+        }
+
+        .menu-btn {
+            display: none;
+            border: none;
+            background: transparent;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 90vh;
+            padding: 50px 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            background: linear-gradient(
+                135deg,
+                #dbeafe,
+                #f5f3ff
+            );
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .intro {
+            font-size: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 8vw, 70px);
+            margin: 10px 0;
+        }
+
+        .hero h2 {
+            font-size: clamp(20px, 4vw, 30px);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 10px auto;
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .hero-buttons {
+            margin-top: 25px;
+
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 12px 25px;
+
+            border: none;
+            border-radius: 6px;
+
+            background: #2563eb;
+            color: white;
+
+            text-decoration: none;
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background: #1d4ed8;
+        }
+
+        .secondary-btn {
+            background: #111827;
+        }
+
+        .secondary-btn:hover {
+            background: #374151;
+        }
+
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        .section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 80px 25px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 45px;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .about-card,
+        .skill-card,
+        .project-card,
+        .experience-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.08);
+
+            transition: 0.3s;
+        }
+
+        .about-card:hover,
+        .skill-card:hover,
+        .project-card:hover,
+        .experience-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills-container {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .skill-card p {
+            margin: 5px 0;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects-container {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .project-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .tech {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+
+            margin-top: 20px;
+        }
+
+        .tech span {
+            padding: 5px 10px;
+
+            border-radius: 20px;
+
+            background: #dbeafe;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           EXPERIENCE
+        ========================= */
+
+        .experience-card {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .company {
+            color: #2563eb;
+            font-weight: bold;
+
+            margin: 8px 0 15px;
+        }
+
+        .experience-card ul {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+
+
+        /* =========================
+           RESUME
+        ========================= */
+
+        .resume-section {
+            text-align: center;
+
+            padding: 70px 20px;
+
+            background: #111827;
+            color: white;
+        }
+
+        .resume-section h2 {
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-form {
+            max-width: 700px;
+            margin: auto;
+
+            display: flex;
+            flex-direction: column;
+
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+
+            padding: 14px;
+
+            border: 1px solid #ccc;
+            border-radius: 6px;
+
+            font-size: 16px;
+
+            font-family: inherit;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: 2px solid #2563eb;
+        }
+
+        #formMessage {
+            text-align: center;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           SOCIAL LINKS
+        ========================= */
+
+        .social-links {
+            margin-top: 30px;
+
+            display: flex;
+            justify-content: center;
+
+            gap: 25px;
+
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: #2563eb;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+
+            padding: 25px;
+
+            background: #111827;
+
+            color: white;
+        }
+
+
+        /* =========================
+           SCROLL TO TOP
+        ========================= */
+
+        #topBtn {
+            position: fixed;
+
+            right: 20px;
+            bottom: 20px;
+
+            width: 45px;
+            height: 45px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: #2563eb;
+
+            color: white;
+
+            font-size: 22px;
+
+            cursor: pointer;
+
+            display: none;
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .skills-container {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .projects-container {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                position: relative;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+
+                position: absolute;
+
+                top: 70px;
+                left: 0;
+
+                width: 100%;
+
+                padding: 20px;
+
+                background: #111827;
+
+                flex-direction: column;
+
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+
+            .section {
+                padding: 60px 20px;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+
+            .skills-container,
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+
+                align-items: center;
+            }
+
+            .hero-buttons .btn {
+                width: 200px;
+            }
+        }
+
+
+        /* =========================
+           REDUCED MOTION
+        ========================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <h2 class="logo">
+                Hansika
+            </h2>
+
+            <button
+                class="menu-btn"
+                id="menuBtn"
+                aria-label="Open navigation menu">
+
+                ☰
+
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#skills">Skills</a>
+                </li>
+
+                <li>
+                    <a href="#projects">Projects</a>
+                </li>
+
+                <li>
+                    <a href="#experience">Experience</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         HOME
+    ========================= -->
+
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <p class="intro">
+                Hello, I'm
+            </p>
+
+            <h1>
+                Hansika Annaldas
+            </h1>
+
+            <h2>
+                B.Tech Information Technology Student
+            </h2>
+
+            <p>
+                Passionate about Web Development,
+                Data Science, Artificial Intelligence
+                and Problem Solving.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#projects"
+                    class="btn">
+
+                    View Projects
+
+                </a>
+
+                <a
+                    href="#contact"
+                    class="btn secondary-btn">
+
+                    Contact Me
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================= -->
+
+    <section id="about" class="section">
+
+        <h2 class="section-title">
+            About Me
+        </h2>
+
+        <div class="about-content">
+
+            <div>
+
+                <h3>
+                    Who Am I?
+                </h3>
+
+                <p>
+                    I am an Information Technology student
+                    interested in software development and
+                    emerging technologies.
+                </p>
+
+                <br>
+
+                <p>
+                    I enjoy creating websites, solving
+                    programming problems and developing
+                    practical projects.
+                </p>
+
+                <br>
+
+                <p>
+                    I am continuously improving my skills
+                    in C++, Python, HTML, CSS, JavaScript
+                    and Data Science.
+                </p>
+
+            </div>
+
+
+            <div class="about-card">
+
+                <p>
+                    <strong>Education:</strong>
+                    B.Tech IT
+                </p>
+
+                <p>
+                    <strong>College:</strong>
+                    CBIT
+                </p>
+
+                <p>
+                    <strong>Skills:</strong>
+                    C++, Python, Web Development
+                </p>
+
+                <p>
+                    <strong>Interest:</strong>
+                    AI & Data Science
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SKILLS
+    ========================= -->
+
+    <section id="skills" class="section">
+
+        <h2 class="section-title">
+            My Skills
+        </h2>
+
+        <div class="skills-container">
+
+            <div class="skill-card">
+
+                <h3>
+                    Programming
+                </h3>
+
+                <p>C++</p>
+                <p>Python</p>
+                <p>Java</p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>
+                    Web Development
+                </h3>
+
+                <p>HTML</p>
+                <p>CSS</p>
+                <p>JavaScript</p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>
+                    Data Science
+                </h3>
+
+                <p>NumPy</p>
+                <p>Pandas</p>
+                <p>Data Analysis</p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>
+                    Tools
+                </h3>
+
+                <p>Git</p>
+                <p>GitHub</p>
+                <p>VS Code</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================= -->
+
+    <section id="projects" class="section">
+
+        <h2 class="section-title">
+            My Projects
+        </h2>
+
+        <div class="projects-container">
+
+            <article class="project-card">
+
+                <h3>
+                    Phone Book
+                </h3>
+
+                <p>
+                    A C++ phone book application using
+                    a hash table with separate chaining
+                    for efficient contact management.
+                </p>
+
+                <div class="tech">
+
+                    <span>C++</span>
+                    <span>DSA</span>
+                    <span>Hash Table</span>
+
+                </div>
+
+            </article>
+
+
+            <article class="project-card">
+
+                <h3>
+                    Line Following Robot
+                </h3>
+
+                <p>
+                    A robot designed to automatically
+                    follow a predefined path using
+                    sensors and a microcontroller.
+                </p>
+
+                <div class="tech">
+
+                    <span>Arduino</span>
+                    <span>Sensors</span>
+                    <span>C++</span>
+
+                </div>
+
+            </article>
+
+
+            <article class="project-card">
+
+                <h3>
+                    Personal Portfolio
+                </h3>
+
+                <p>
+                    A responsive personal portfolio
+                    website showcasing my skills,
+                    projects and experience.
+                </p>
+
+                <div class="tech">
+
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EXPERIENCE
+    ========================= -->
+
+    <section id="experience" class="section">
+
+        <h2 class="section-title">
+            Experience
+        </h2>
+
+        <div class="experience-card">
+
+            <h3>
+                Web Development Internship
+            </h3>
+
+            <p class="company">
+                Codomax Digital Solutions
+            </p>
+
+            <p>
+                Worked on developing and improving
+                a responsive portfolio website using
+                HTML, CSS and JavaScript.
+            </p>
+
+            <ul>
+
+                <li>
+                    Created responsive web pages
+                </li>
+
+                <li>
+                    Implemented animations and transitions
+                </li>
+
+                <li>
+                    Improved mobile compatibility
+                </li>
+
+                <li>
+                    Fixed UI and functionality bugs
+                </li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         RESUME
+    ========================= -->
+
+    <section class="resume-section">
+
+        <h2>
+            Download My Resume
+        </h2>
+
+        <br>
+
+        <!-- DOWNLOAD RESUME -->
+
+        <a
+            href="resume.pdf"
+            download
+            class="btn">
+
+            📄 Download Resume
+
+        </a>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================= -->
+
+    <section id="contact" class="section">
+
+        <h2 class="section-title">
+            Contact Me
+        </h2>
+
+        <form
+            id="contactForm"
+            class="contact-form">
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Your Name"
+                required>
+
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Your Email"
+                required>
+
+
+            <textarea
+                id="message"
+                rows="6"
+                placeholder="Your Message"
+                required></textarea>
+
+
+            <button
+                type="submit"
+                class="btn">
+
+                Send Message
+
+            </button>
+
+
+            <p id="formMessage"></p>
+
+        </form>
+
+
+        <div class="social-links">
+
+            <a
+                href="https://github.com/"
+                target="_blank"
+                rel="noopener">
+
+                GitHub
+
+            </a>
+
+
+            <a
+                href="https://www.linkedin.com/"
+                target="_blank"
+                rel="noopener">
+
+                LinkedIn
+
+            </a>
+
+
+            <a
+                href="mailto:yourmail@gmail.com">
+
+                Email
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Hansika Annaldas.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         SCROLL TO TOP
+    ========================= -->
+
+    <button
+        id="topBtn"
+        aria-label="Scroll to top">
+
+        ↑
+
+    </button>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        // MOBILE MENU
+
+        const menuBtn =
+            document.getElementById("menuBtn");
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+
+        menuBtn.addEventListener(
+            "click",
+            function () {
+
+                navLinks.classList.toggle("active");
+
+            }
+        );
+
+
+        // CLOSE MENU AFTER CLICK
+
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        navLinks.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+            });
+
+
+        // CONTACT FORM VALIDATION
+
+        const contactForm =
+            document.getElementById(
+                "contactForm"
+            );
+
+        const formMessage =
+            document.getElementById(
+                "formMessage"
+            );
+
+
+        contactForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const name =
+                    document.getElementById(
+                        "name"
+                    ).value.trim();
+
+
+                const email =
+                    document.getElementById(
+                        "email"
+                    ).value.trim();
+
+
+                const message =
+                    document.getElementById(
+                        "message"
+                    ).value.trim();
+
+
+                if (
+                    name === "" ||
+                    email === "" ||
+                    message === ""
+                ) {
+
+                    formMessage.textContent =
+                        "Please fill in all fields.";
+
+                    formMessage.style.color =
+                        "red";
+
+                    return;
+                }
+
+
+                // EMAIL VALIDATION
+
+                const emailPattern =
+                    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+                if (
+                    !emailPattern.test(email)
+                ) {
+
+                    formMessage.textContent =
+                        "Please enter a valid email address.";
+
+                    formMessage.style.color =
+                        "red";
+
+                    return;
+                }
+
+
+                formMessage.textContent =
+                    "Message submitted successfully!";
+
+                formMessage.style.color =
+                    "green";
+
+
+                contactForm.reset();
+
+            }
+        );
+
+
+        // SCROLL TO TOP
+
+        const topBtn =
+            document.getElementById(
+                "topBtn"
+            );
+
+
+        window.addEventListener(
+            "scroll",
+            function () {
+
+                if (window.scrollY > 400) {
+
+                    topBtn.style.display =
+                        "block";
+
+                } else {
+
+                    topBtn.style.display =
+                        "none";
+
+                }
+
+            }
+        );
+
+
+        topBtn.addEventListener(
+            "click",
+            function () {
+
+                window.scrollTo({
+
+                    top: 0,
+
+                    behavior: "smooth"
+
+                });
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
